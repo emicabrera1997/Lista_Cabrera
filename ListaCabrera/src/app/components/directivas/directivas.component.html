@@ -1,0 +1,27 @@
+<table class="table table-hover table-condensed text-center">
+    <thead>
+        <tr>
+            <th scope="col">Legajo</th>
+            <th scope="col">Nombre y Apellido</th>
+            <th scope="col">Primer Parcial</th>
+            <th scope="col">Segundo Parcial</th>
+            <th scope="col">Tercer Parcial</th>
+            <th scope="col">Estado</th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        <tr *ngFor="let e of listaEstudiantes">
+            <td>{{e.legajo}}</td>
+            <td>{{e.nombre}}</td>
+            <td>{{e.notaUno}}</td>
+            <td>{{e.notaDos}}</td>
+            <td>{{e.notaTres}}</td>
+            <td>
+                <span *ngIf="e.calcularPromedio() <= 4" class="libre"> LIBRE</span>
+                <span *ngIf="e.calcularPromedio() > 4 && e.calcularPromedio() <= 8" class="regular"> REGULAR</span>
+                <span *ngIf="e.calcularPromedio() > 8" class="promocion"> PROMOCIÓN</span>
+            </td>
+        </tr>
+
+    </tbody>
+</table>
